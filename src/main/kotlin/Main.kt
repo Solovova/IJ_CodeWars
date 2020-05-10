@@ -1,3 +1,3 @@
 fun main() {
-    println(Task03().maxBall(15))
+    println(Task04().getAtoms("Mg(OH)2"))
 }

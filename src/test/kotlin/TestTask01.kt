@@ -1,5 +1,5 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 internal class TestTask01 {
     private val task: Task01 = Task01()
