@@ -1,4 +1,3 @@
 fun main() {
-    Task01().run()
-    println(Task01().add1(10))
+    println(Task01().factors(4206328 ))
 }
