@@ -1,5 +1,5 @@
-import complete.Task11
+import complete.Task13
 
 fun main() {
-    println(Task12().rectangleRotation(6, 4))
+    println(Task13().nextBiggerNumber(931902531))
 }
