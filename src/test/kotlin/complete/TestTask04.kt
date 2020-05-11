@@ -9,7 +9,7 @@ import java.util.*
 import kotlin.test.assertFailsWith
 
 @RunWith(Parameterized::class)
-class SolutionTest(atoms: List<String>, nums: List<Int>, private val formula: String, private val name: String) {
+class TestTask04(atoms: List<String>, nums: List<Int>, private val formula: String, private val name: String) {
     private val expected: Map<String, Int>
     private val task: Task04 = Task04()
 

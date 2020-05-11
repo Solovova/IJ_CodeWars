@@ -1,4 +1,6 @@
-import complete.Task01
+package complete
+
+import complete.Task07
 import kotlin.test.assertEquals
 import org.junit.Test
 

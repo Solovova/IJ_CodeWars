@@ -1,3 +1,5 @@
+package complete
+
 import java.awt.Point
 
 class Task08 {

@@ -1,4 +1,7 @@
+import complete.Task11
 
 fun main() {
-    println(Task08().rangeExtraction(intArrayOf(-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20)))
+    println(Task11().top3("a a a  b  c c  d d d d  e e e e e"))
+
+
 }

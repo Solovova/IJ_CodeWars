@@ -1,3 +1,6 @@
+package complete
+
+import complete.Task08
 import org.junit.Test
 import kotlin.test.assertEquals
 
