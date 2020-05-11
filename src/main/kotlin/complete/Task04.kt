@@ -1,3 +1,5 @@
+package complete
+
 class Task04 {
     private fun getAtomsUp(formula: String): MutableMap<String, Int> {
         val result: MutableMap<String, Int> = mutableMapOf()

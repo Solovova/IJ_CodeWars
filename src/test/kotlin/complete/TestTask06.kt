@@ -1,5 +1,7 @@
+package complete
+
+import complete.Task06
 import org.junit.Assert.*
-import java.util.ArrayList
 import org.junit.Test
 class TestTask06 {
     private val task: Task06 = Task06()

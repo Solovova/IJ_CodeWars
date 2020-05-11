@@ -1,3 +1,5 @@
+package complete
+
 class Task05 {
     private fun nextIndex(ind: MutableList<Int>, maxInd: Int): Boolean {
         var indPointer = ind.size - 1

@@ -1,3 +1,5 @@
+package complete
+
 class Task02 {
     fun sumConsecutives1(s: List<Int>): List<Int> {
         var prev: Int? = null

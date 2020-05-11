@@ -1,3 +1,6 @@
+package complete
+
+import complete.Task01
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

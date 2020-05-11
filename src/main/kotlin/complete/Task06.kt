@@ -1,3 +1,5 @@
+package complete
+
 class Task06 {
     fun findEvenIndex(arr: IntArray): Int {
         var sumLeftSide = 0

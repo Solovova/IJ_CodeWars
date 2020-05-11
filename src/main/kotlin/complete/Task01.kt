@@ -1,3 +1,5 @@
+package complete
+
 import kotlin.math.sqrt
 
 class Task01 {

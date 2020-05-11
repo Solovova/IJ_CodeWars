@@ -1,3 +1,5 @@
+package complete
+
 class Task03 {
     private fun getH(v: Double, t: Int):Double {
         return v*t*0.1 - 0.5*9.81*t*t*0.01
