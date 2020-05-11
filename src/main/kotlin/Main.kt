@@ -1,7 +1,6 @@
+import java.util.ArrayList
+
 fun main() {
-    //println(Task04().getAtoms("H2O5(Sn[O3]5)2"))
-    //println(Task04().getAtoms("Sn[O3]5"))
-    //println(Task04().getAtoms("Mo(CO)6"))
-    //println(Task04().getAtoms("((H)2)[O]"))
-    println(Task04().getAtoms("[O]2"))
+    val ts = ArrayList<Int>(listOf<Int>(50, 55, 56, 57, 58))
+    println(Task05().chooseBestSum(163, 3, ts))
 }
