@@ -60,4 +60,18 @@ class Task13 {
         }
         return -1
     }
+
+    fun testTail() {
+        val list: MutableList<Int> = mutableListOf(4,3,45,223,2,13,42,21,23,2)
+        val test = list.asSequence().zipWithNext { a, b -> a+b }.toMutableList()
+        println(test)
+//        val tail = list.subList(4,list.size)
+//        println(tail)
+//        tail.sortDescending()
+//        println(list)
+
+        val min = list.withIndex().minBy { it.value }
+        if (min!=null)
+            println("${min.value} ${min.index}")
+    }
 }
