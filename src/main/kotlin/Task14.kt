@@ -31,33 +31,71 @@ class Task14 {
 
 
 
-        //method 2
         println("Max size: ${entryA.size}")
         for (findLen in entryA.size downTo 1) {
-            val result = StringBuilder()
-
-            val entry = entryA.toMutableList()
             var possible = true
 
             val maxExcept = entryA.size - findLen
             val maxDeviation = bCrossing.length - findLen
 
             var countExcept = 0
+
             var prev = -1
-            for (i in entry.indices) {
-                val entryPos = entry[i].filter { it >= i-maxDeviation && it <= i+maxDeviation && it>prev}
-                if (entryPos.isEmpty()) {
-                    countExcept++
+
+            val listStack:MutableList<List<Int>> = mutableListOf() //Index,prev,this,TakeIndex,countExcept
+
+            var index = 0
+            var needBack = false
+            var needBackTakeIndexPrev = -1
+            while (index < entryA.size) {
+
+                val entryPos = entryA[index].filter { it >= index-maxDeviation-countExcept && it <= index+maxDeviation-countExcept && it>prev}
+                if (!needBack) {
+
+                    if (entryPos.isEmpty()) {
+                        countExcept++
+                    } else {
+                        listStack.add(listOf<Int>(index, prev, entryPos[0],0, countExcept))
+                        if (listStack.size >= findLen) {
+                            break
+                        }
+                        prev = entryPos[0]
+                    }
                 }else{
-                    prev = entryPos[0]
-                    print("$prev|")
-                    result.append(bCrossing[prev])
-                }
-                if (countExcept>maxExcept) {
-                    possible = false
-                    break
+                    if (needBackTakeIndexPrev>(entryPos.size-2)) {
+                        countExcept++
+                        needBack=false
+                    }else{
+                        listStack.add(listOf<Int>(index, prev, entryPos[needBackTakeIndexPrev+1],needBackTakeIndexPrev+1, countExcept))
+                        if (listStack.size >= findLen) {
+                            break
+                        }
+                        prev = entryPos[needBackTakeIndexPrev+1]
+                    }
                 }
 
+                if (countExcept>maxExcept) {
+                    if (listStack.isNotEmpty()) {
+                        val backRecord = listStack[listStack.size-1]
+                        listStack.removeAt(listStack.size-1)
+                        index=backRecord[0]
+                        prev=backRecord[1]
+                        needBackTakeIndexPrev=backRecord[3]
+                        countExcept=backRecord[4]
+
+                        needBack = true
+                    }else{
+                        possible = false
+                        break
+                    }
+                }else{
+                    index++
+                }
+            }
+
+            val result = StringBuilder()
+            for (el in listStack) {
+                result.append(aCrossing[el[0]])
             }
 
 
@@ -66,70 +104,17 @@ class Task14 {
         }
 
         return ""
+    }
 
-        //method 1 bruteForce long work
+    val m = mutableMapOf<Pair<String,String>,String>()
 
-        val bruteForceIndex: MutableList<Int> = MutableList(entryA.size) { -1 }
-        val maxIndex: List<Int> = List(entryA.size) { entryA[it].size - 1 }
-
-        var bruteForceIndexMax: MutableList<Int> = mutableListOf()
-        var bruteForceIndexLen = 0
-
-        println(maxIndex)
-
-        var needRepeat = true
-        var iterations = 0
-        while (needRepeat) {
-            iterations++
-            //check 1
-            var check = true
-            val listCheck: MutableList<Int> = mutableListOf()
-            if (bruteForceIndex.filter { it != -1 }.size<bruteForceIndexLen)
-                check = false
-
-            //check 2
-            if (check) {
-                for (el in bruteForceIndex.withIndex()) {
-                    if (el.value != -1) {
-                        listCheck.add(entryA[el.index][el.value])
-
-                        if (listCheck.size > 1 && (listCheck[listCheck.size - 2] >= listCheck[listCheck.size - 1])) {
-                            check = false
-                            break
-                        }
-                    }
-                }
-            }
-
-            if (check && listCheck.size > bruteForceIndexLen) {
-                bruteForceIndexLen = listCheck.size
-                bruteForceIndexMax = bruteForceIndex.toMutableList()
-                if (bruteForceIndexLen == bruteForceIndex.size) needRepeat = false
-            }
-
-            //println("$bruteForceIndex $listCheck")
-            //add bruteForceIndex
-            for (i in bruteForceIndex.indices) {
-                if (bruteForceIndex[i] < maxIndex[i]) {
-                    bruteForceIndex[i]++
-                    break
-                } else {
-                    bruteForceIndex[i] = -1
-                    if (i == bruteForceIndex.size - 1) needRepeat = false
-                }
-            }
-        }
-
-        println("$bruteForceIndexMax $bruteForceIndexLen")
-        println("iterations: $iterations")
-
-        val result = StringBuilder()
-        for (el in bruteForceIndexMax.withIndex()) {
-            if (el.value != -1) {
-                result.append(aCrossing[el.index])
-            }
-        }
-
-        return result.toString()
+    fun lcs1(a: String, b: String): String {
+        if (a.isEmpty() || b.isEmpty())
+            return ""
+        if (a.first() == b.first())
+            return a.first() + lcs(a.drop(1),b.drop(1))
+        val s1 = m.getOrPut(a to b.drop(1)) { lcs(a,b.drop(1)) }
+        val s2 = m.getOrPut(a.drop(1) to b) { lcs(a.drop(1),b) }
+        return if (s1.length > s2.length) s1 else s2
     }
 }
