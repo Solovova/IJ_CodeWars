@@ -1,3 +1,5 @@
+package complete
+
 class ExampleRegex {
 
     fun ex1() {
@@ -32,5 +34,7 @@ class ExampleRegex {
 
 }
 
+//https://regex.sorokin.engineer/ru/latest/regular_expressions.html
 //https://www.fandroid.info/6-5-osnovy-kotlin-doktor-regexp/
 //https://riptutorial.com/ru/kotlin/example/32686/%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D0%BA%D0%BE%D1%82%D0%BB%D0%B8%D0%BD%D0%B5
+//https://regex101.com/

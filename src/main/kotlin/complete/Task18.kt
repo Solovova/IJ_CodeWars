@@ -1,3 +1,5 @@
+package complete
+
 class Task18 {
     fun f(s:String)=(s).map{val i="{}()<>".indexOf(it);if(i>=0)"}{)(><"[i]else it}.joinToString("")
 

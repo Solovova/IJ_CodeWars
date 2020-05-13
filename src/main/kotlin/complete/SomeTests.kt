@@ -1,3 +1,5 @@
+package complete
+
 class SomeTests {
     fun testMutableListDefaultValue() {
         val registers = mutableMapOf<String, Int>()
