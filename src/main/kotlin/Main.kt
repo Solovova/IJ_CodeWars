@@ -1,3 +1,3 @@
 fun main() {
-    GRoundA2020PlatesV4().sTest()
+    GRoundB2020BikeTour().sTest()
 }

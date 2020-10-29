@@ -13,7 +13,7 @@ class GRoundA2020PlatesV4 {
             val lis = mutableListOf<Int>()
             lis.add(0)
             stack.forEach{lis.add(lis[lis.size-1] + it)}
-            lis
+            return@map lis
         }
 
         val dp = Array(nStacks+1) {Array(P+1) {0} }
