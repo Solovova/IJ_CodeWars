@@ -1,0 +1,4 @@
+package marsHorizon
+
+class DRect {
+}
