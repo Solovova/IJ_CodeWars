@@ -25,7 +25,7 @@ class DRectTurn(
                 if ((nextSteep % maxTurnsStep == 0 && nextSteep !=0 && nextSteep != (maxTurns*maxTurnsStep)) ) {
                     recNext.force = recNext.force + turnForce
                     recNext.heat = recNext.heat + turnHeat
-                    if (recNext.heat > 5) {
+                    if (recNext.heat > recNeed.heat) {
                         return null
                     }
                     recNext.empl = turnEmploy
