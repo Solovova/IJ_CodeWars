@@ -1,4 +1,3 @@
 package marsHorizon
 
-class DRectOp {
-}
+data class DRectOp(val recMinus: DRect, val recPlus: DRect)

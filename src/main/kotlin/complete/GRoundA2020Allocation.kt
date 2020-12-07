@@ -1,3 +1,5 @@
+package complete
+
 import java.io.*
 
 class GRoundA2020Allocation {

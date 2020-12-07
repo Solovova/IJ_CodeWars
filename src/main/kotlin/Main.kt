@@ -1,3 +1,5 @@
+import marsHorizon.MarsHorizon
+
 fun main() {
-    GRoundB2020BikeTour().sTest()
+    MarsHorizon()
 }

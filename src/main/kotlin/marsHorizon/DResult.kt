@@ -1,4 +1,3 @@
 package marsHorizon
 
-class DResult {
-}
+data class DResult(val steeps: MutableList<Int>, val rec: DRect)

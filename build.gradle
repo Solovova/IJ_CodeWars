@@ -11,6 +11,12 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
+    implementation 'org.apache.poi:poi:4.1.2'
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+
+
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
     //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
     testImplementation 'junit:junit:4.12'
